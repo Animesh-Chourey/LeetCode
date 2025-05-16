@@ -1,6 +1,22 @@
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
-        left = 0
+        
+	# Solution 1
+
+	left = 0
+        # if the element at right position is greater than element at left position
+        # swap that greater element with the element after the left index position
+        for right in range(1, len(nums)):
+            if nums[left] < nums[right]:
+                nums[left+1], nums[right] = nums[right], nums[left+1]
+                left += 1
+        
+        return left+1
+
+
+	# Solution 2	
+
+	left = 0
         right = 1
 
         # iterate until left index encounters 'A'
